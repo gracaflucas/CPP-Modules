@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 12:45:17 by lufiguei          #+#    #+#             */
-/*   Updated: 2025/05/02 12:52:44 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/02 13:28:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,10 @@ void    PhoneBook::displayContact() const {
               << std::setw(10) << "Last Name" << "|"
               << std::setw(10) << "Nickname" << '\n';
     for (int i = 0; i < totalContacts; i++) {
-        std::cout << std::setw(10) << i << "|"
+        std::cout << "         " << i << "|"
         << formatField(contacts[i].getFirstName()) << "|"
         << formatField(contacts[i].getLastName()) << "|"
-        << formatField(contacts[i].getNickname()) << "|"
-        << formatField(contacts[i].getNumber()) << "|"
-        << formatField(contacts[i].getDarkestSecret()) << '\n';
+        << formatField(contacts[i].getNickname()) << '\n';
     }
 }
 
