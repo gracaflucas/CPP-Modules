@@ -3,11 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lufiguei <lufiguei@student.42porto.co      +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/30 12:46:34 by lufiguei          #+#    #+#             */
-/*   Updated: 2025/04/30 12:46:36 by lufiguei         ###   ########.fr       */
+/*   Created: 2025/05/02 13:32:26 by marvin            #+#    #+#             */
+/*   Updated: 2025/05/02 13:32:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Account.hpp"
 
