@@ -20,5 +20,4 @@ int main(int argc, char **argv) {
         std::cout << "try ./main filename s1 s2" << std::endl;
         return 1;
     }
-
 }
