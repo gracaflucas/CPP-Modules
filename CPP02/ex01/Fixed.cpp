@@ -14,29 +14,52 @@
 
 Fixed::Fixed() {
     std::cout << "Default constructor called." << std::endl;
+    this->fixed = 0;
 }
 
 Fixed::Fixed(const Fixed& copy) {
     std::cout << "Copy constructor called." << std::endl;
+    *this = copy;
 }
 
-// copy assignment
+Fixed::Fixed(const int overwrite) {
+    std::cout << "Int constructor called." << std::endl;
+    this->fixed = overwrite << bit;
+}
+
+Fixed::Fixed(const float overwrite) {
+    std::cout << "Float constructor called." << std::endl;
+    this->fixed = roundf(overwrite * (1 << bit));
+}
+
+Fixed& Fixed::operator=(const Fixed& copy) {
+    std::cout << "Copy assignment operator called." << std::endl;
+    this->fixed = copy.getRawBits();
+    return *this;
+}
 
 Fixed::~Fixed() {
     std::cout << "Destructor called." << std::endl;
 }
 
+float    Fixed::toFloat( void ) const {
+    return (float)this->fixed / (1 << bit);
+}
+
+int    Fixed::toInt( void ) const {
+    return this->fixed >> bit;
+}
+
 int     Fixed::getRawBits( void ) const {
     std::cout << "getRawBits member function called." << std::endl;
+    return this->fixed;
 }
 
 void    Fixed::setRawBits( int const raw ) {
+    this->fixed = raw;
 }
 
-float   Fixed::toFloat( void ) const{}
-int     Fixed::toInt( void ) const{}
-Fixed::Fixed(const int raw){}
-Fixed::Fixed(const float raw){}
-
-// Anoverload of the insertion («) operator that inserts a floating-point representation
-// of the fixed-point number into the output stream object passed as a parameter.
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
+    os << fixed.toFloat();
+    return os;
+}

@@ -24,14 +24,16 @@ class Fixed {
     public:
         Fixed();
         Fixed(const Fixed& copy);
-        // copy assignment
-        Fixed(const int raw);
-        Fixed(const float raw);
+        Fixed(const int overwrite);
+        Fixed(const float overwrite);
+        Fixed& operator=(const Fixed& copy);
         ~Fixed();
-        int     getRawBits( void ) const;
-        void    setRawBits( int const raw );
         float   toFloat( void ) const;
         int     toInt( void ) const;
+        int     getRawBits( void ) const;
+        void    setRawBits( int const raw );
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif
