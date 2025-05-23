@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lufiguei <lufiguei@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 12:45:26 by lufiguei          #+#    #+#             */
-/*   Updated: 2025/05/02 12:52:53 by marvin           ###   ########.fr       */
+/*   Updated: 2025/04/30 12:45:27 by lufiguei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
-# include "contact.hpp"
+# include "Contact.hpp"
 
 class   PhoneBook {
 

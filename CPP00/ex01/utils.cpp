@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lufiguei <lufiguei@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/01 16:21:57 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/01 16:21:57 by marvin           ###   ########.fr       */
+/*   Created: 2025/05/23 13:45:54 by lufiguei          #+#    #+#             */
+/*   Updated: 2025/05/23 13:45:55 by lufiguei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "contact.hpp"
+#include "Contact.hpp"
 
 bool    getNonEmptyInput(const std::string prompt, std::string& input) {
     while (42) {

@@ -1,6 +1,6 @@
-NAME = phonebook
-SRC =	phonebook.cpp \
-		contact.cpp \
+NAME = PhoneBook
+SRC =	PhoneBook.cpp \
+		Contact.cpp \
 		main.cpp \
 		utils.cpp
 OBJ = $(SRC:.cpp=.o)
