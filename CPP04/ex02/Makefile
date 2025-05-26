@@ -1,6 +1,5 @@
 NAME = Abstract
 SRC =	main.cpp \
-		Animal.cpp \
 		Dog.cpp \
 		Cat.cpp \
 		Brain.cpp \

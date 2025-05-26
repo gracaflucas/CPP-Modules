@@ -14,7 +14,7 @@
 
 Cat::Cat() : AAnimal() {
     std::cout << "Cat default constructor called." << std::endl;
-    this->type = "Cat";
+    this->setType("Cat");
     this->catBrain = new Brain;
 }
 
@@ -24,7 +24,7 @@ Cat::Cat(const Cat& copy) : AAnimal(copy) {
 }
 
 Cat& Cat::operator=(const Cat& other) {
-    std::cout << "Cat assign operator constructor called." << std::endl;
+    std::cout << "Cat assignment operator called." << std::endl;
     if (this != &other) {
         AAnimal::operator=(other);
         delete this->catBrain;

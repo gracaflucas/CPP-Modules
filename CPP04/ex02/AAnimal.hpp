@@ -17,7 +17,7 @@
 #include <string>
 
 class AAnimal {
-    protected:
+    private:
         std::string type;
 
     public:
@@ -27,6 +27,7 @@ class AAnimal {
         virtual ~AAnimal();
         virtual void    makeSound() const = 0;
         std::string getType() const;
+        void        setType(const std::string& type);
 };
 
 #endif

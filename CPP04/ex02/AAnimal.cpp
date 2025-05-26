@@ -14,7 +14,7 @@
 
 AAnimal::AAnimal() {
     std::cout << "Default animal constructor called." << std::endl;
-    this->type = "just an Animal.";
+    this->setType("just an Animal.");
 }
 
 AAnimal::AAnimal(const AAnimal& copy) {
@@ -23,7 +23,7 @@ AAnimal::AAnimal(const AAnimal& copy) {
 }
 
 AAnimal& AAnimal::operator=(const AAnimal& other) {
-    std::cout << "AAnimal assign operator constructor called." << std::endl;
+    std::cout << "AAnimal assignment operator called." << std::endl;
     if (this != &other) {
         this->type = other.getType(); 
     }
@@ -40,4 +40,8 @@ void    AAnimal::makeSound() const {
 
 std::string AAnimal::getType() const {
     return this->type;
+}
+
+void        AAnimal::setType(const std::string& type) {
+    this->type = type;
 }

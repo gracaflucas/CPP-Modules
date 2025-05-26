@@ -18,7 +18,7 @@
 
 class Animal {
 
-    protected:
+    private:
         std::string type;
 
     public:
@@ -28,6 +28,7 @@ class Animal {
         virtual ~Animal();
         virtual void    makeSound() const;
         std::string getType() const;
+        void        setType(const std::string& type);
 };
 
 #endif

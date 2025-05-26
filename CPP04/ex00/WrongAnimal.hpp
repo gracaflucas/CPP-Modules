@@ -18,7 +18,7 @@
 
 class WrongAnimal {
 
-    protected:
+    private:
         std::string type;
 
     public:
@@ -28,6 +28,7 @@ class WrongAnimal {
         ~WrongAnimal();
         void    makeSound() const;
         std::string getType() const;
+        void        setType(const std::string& type);
 };
 
 #endif

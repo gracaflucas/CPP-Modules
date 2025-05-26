@@ -14,7 +14,7 @@
 
 WrongAnimal::WrongAnimal() {
     std::cout << "Default wrong animal constructor called." << std::endl;
-    this->type = "just a Wrong Animal.";
+    this->setType("just a Wrong Animal.");
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& copy) {
@@ -23,9 +23,9 @@ WrongAnimal::WrongAnimal(const WrongAnimal& copy) {
 }
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other) {
-    std::cout << "Wrong animal assign operator constructor called." << std::endl;
+    std::cout << "Wrong animal assignment operator called." << std::endl;
     if (this != &other) {
-        this->type = other.getType(); 
+        this->setType(other.getType()); 
     }
     return *this;
 }
@@ -40,4 +40,8 @@ void    WrongAnimal::makeSound() const {
 
 std::string WrongAnimal::getType() const {
     return this->type;
+}
+
+void        WrongAnimal::setType(const std::string& type) {
+    this->type = type;
 }
