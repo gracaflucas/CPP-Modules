@@ -14,6 +14,7 @@
 #define DIAMONDTRAP_HPP
 
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 class DiamondTrap : public ScavTrap, public FragTrap {
     private:
@@ -26,7 +27,11 @@ class DiamondTrap : public ScavTrap, public FragTrap {
         DiamondTrap &operator=(const DiamondTrap& other);
         ~DiamondTrap();
 
-        void    whoAmI();
+        void attack(const std::string& target);
+        void whoAmI();
+
+        std::string getDiamondName() const;
+        void        setDiamondName(const std::string& name);
 };
 
 #endif

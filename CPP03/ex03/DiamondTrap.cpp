@@ -12,25 +12,54 @@
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() {
+DiamondTrap::DiamondTrap()
+: ClapTrap(), ScavTrap(), FragTrap(), name("") {
     std::cout << "DiamondTrap constructor called." << std::endl;
+    hitPoints = FragTrap::hitPoints;
+    energyPoints = ScavTrap::energyPoints;
+    attackDamage = FragTrap::attackDamage;
 }
 
-DiamondTrap::DiamondTrap(std::string name) {
+DiamondTrap::DiamondTrap(std::string name)
+: ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), name(name){
     std::cout << "DiamondTrap name constructor called." << std::endl;
+    hitPoints = FragTrap::hitPoints;
+    energyPoints = ScavTrap::energyPoints;
+    attackDamage = FragTrap::attackDamage;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap& copy) {
+DiamondTrap::DiamondTrap(const DiamondTrap& copy)
+: ClapTrap(copy), ScavTrap(copy), FragTrap(copy), name(copy.name) {
     std::cout << "DiamondTrap copy constructor called." << std::endl;
 }
 
-DiamondTrap &DiamondTrap::operator=(const DiamondTrap& other) {}
+DiamondTrap &DiamondTrap::operator=(const DiamondTrap& other) {
+    if (this != &other) {
+        ClapTrap::operator=(other);
+        ScavTrap::operator=(other);
+        FragTrap::operator=(other);
+        name = other.name;
+    }
+    return *this;
+}
 
 DiamondTrap::~DiamondTrap() {
     std::cout << "DiamondTrap destructor called." << std::endl;
 }
 
+void DiamondTrap::attack(const std::string& target) {
+    ScavTrap::attack(target);
+}
+
 void    DiamondTrap::whoAmI() {
-    std::cout << "ClapTrap: " << ClapTrap::name << std:endl;
-    std::cout << "DiamondTrap: " << this->name << std::endl;
+    std::cout << "ClapTrap: " << ClapTrap::name << std::endl;
+    std::cout << "DiamondTrap: " << name << std::endl;
+}
+
+std::string DiamondTrap::getDiamondName() const {
+    return name;
+}
+
+void        DiamondTrap::setDiamondName(const std::string& name) {
+    this->name = name;
 }
