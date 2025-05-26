@@ -17,7 +17,7 @@
 #include <string>
 
 class AAnimal {
-    private:
+    protected:
         std::string type;
 
     public:

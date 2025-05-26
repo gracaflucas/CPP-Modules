@@ -14,18 +14,18 @@
 
 WrongAnimal::WrongAnimal() {
     std::cout << "Default wrong animal constructor called." << std::endl;
-    this->setType("just a Wrong Animal.");
+    type = "just a Wrong Animal.";
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& copy) {
     std::cout << "Wrong animal copy constructor called." << std::endl;
-    this->type = copy.getType();
+    type = copy.type;
 }
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other) {
     std::cout << "Wrong animal assignment operator called." << std::endl;
     if (this != &other) {
-        this->setType(other.getType()); 
+        type = other.type; 
     }
     return *this;
 }

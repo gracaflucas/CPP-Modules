@@ -14,21 +14,21 @@
 
 Dog::Dog() : Animal() {
     std::cout << "Dog default constructor called." << std::endl;
-    this->setType("Dog");
-    this->dogBrain = new Brain;
+    type = "Dog";
+    dogBrain = new Brain;
 }
 
 Dog::Dog(const Dog& copy) : Animal(copy) {
     std::cout << "Dog copy constructor called." << std::endl;
-    this->dogBrain = new Brain(*copy.dogBrain);
+    dogBrain = new Brain(*copy.dogBrain);
 }
 
 Dog& Dog::operator=(const Dog& other) {
     std::cout << "Dog assignment operator called." << std::endl;
     if (this != &other) {
         Animal::operator=(other);
-        delete this->dogBrain;
-        this->dogBrain = new Brain(*other.dogBrain);
+        delete dogBrain;
+        dogBrain = new Brain(*other.dogBrain);
     }
     return *this;
 }
@@ -43,5 +43,5 @@ void    Dog::makeSound() const {
 }
 
 Brain&   Dog::getBrain() const {
-    return *this->dogBrain;
+    return *dogBrain;
 }

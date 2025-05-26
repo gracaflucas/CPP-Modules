@@ -14,18 +14,18 @@
 
 AAnimal::AAnimal() {
     std::cout << "Default animal constructor called." << std::endl;
-    this->setType("just an Animal.");
+    type = "just an Animal.";
 }
 
 AAnimal::AAnimal(const AAnimal& copy) {
     std::cout << "AAnimal copy constructor called." << std::endl;
-    this->type = copy.getType();
+    type = copy.type;
 }
 
 AAnimal& AAnimal::operator=(const AAnimal& other) {
     std::cout << "AAnimal assignment operator called." << std::endl;
     if (this != &other) {
-        this->type = other.getType(); 
+        type = other.type; 
     }
     return *this;
 }

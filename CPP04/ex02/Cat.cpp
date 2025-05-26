@@ -14,21 +14,21 @@
 
 Cat::Cat() : AAnimal() {
     std::cout << "Cat default constructor called." << std::endl;
-    this->setType("Cat");
-    this->catBrain = new Brain;
+    type = "Cat";
+    catBrain = new Brain;
 }
 
 Cat::Cat(const Cat& copy) : AAnimal(copy) {
     std::cout << "Cat copy constructor called." << std::endl;
-    this->catBrain = new Brain(*copy.catBrain);
+    catBrain = new Brain(*copy.catBrain);
 }
 
 Cat& Cat::operator=(const Cat& other) {
     std::cout << "Cat assignment operator called." << std::endl;
     if (this != &other) {
         AAnimal::operator=(other);
-        delete this->catBrain;
-        this->catBrain = new Brain(*other.catBrain);
+        delete catBrain;
+        catBrain = new Brain(*other.catBrain);
     }
     return *this;
 }
@@ -43,5 +43,5 @@ void    Cat::makeSound() const {
 }
 
 Brain&   Cat::getBrain() const {
-    return *this->catBrain;
+    return *catBrain;
 }

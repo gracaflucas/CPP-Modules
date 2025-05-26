@@ -14,7 +14,7 @@
 
 WrongCat::WrongCat() : WrongAnimal() {
     std::cout << "WrongCat default constructor called." << std::endl;
-    this->setType("WrongCat");
+    type = "WrongCat";
 }
 
 WrongCat::WrongCat(const WrongCat& copy) : WrongAnimal(copy) {
