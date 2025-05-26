@@ -39,3 +39,10 @@ Brain& Brain::operator=(const Brain& other) {
 Brain::~Brain() {
     std::cout << "Brain destructor called." << std::endl;
 }
+
+void Brain::setIdea(int index, const std::string& idea) {
+    this->ideas[index] = idea;
+}
+std::string Brain::getIdea(int index) const {
+    return this->ideas[index];
+}

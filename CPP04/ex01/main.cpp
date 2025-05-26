@@ -34,5 +34,24 @@ int main()
     delete d;
     delete e;
     delete f;
+
+    Cat originalCat;
+    originalCat.getBrain().setIdea(0, "Chase mice");
+    originalCat.getBrain().setIdea(1, "Sleep");
+
+    // Copy the original cat
+    Cat copyCat = originalCat;
+
+    // Change the original cat's brain idea
+    originalCat.getBrain().setIdea(0, "Eat fish");
+
+    // Check ideas in copyCat remain unchanged (deep copy)
+    std::cout << "Original Cat idea 0: " << originalCat.getBrain().getIdea(0) << std::endl;
+    std::cout << "Copy Cat idea 0: " << copyCat.getBrain().getIdea(0) << std::endl;
+
+    // Should output:
+    // Original Cat idea 0: Eat fish
+    // Copy Cat idea 0: Chase mice  <-- if deep copy worked
+    
     return 0;
 }
