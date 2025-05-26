@@ -22,7 +22,6 @@ class Dog : public AAnimal {
 
     public:
         Dog();
-        Dog(std::string name);
         Dog(const Dog& copy);
         Dog& operator=(const Dog& other);
         ~Dog();

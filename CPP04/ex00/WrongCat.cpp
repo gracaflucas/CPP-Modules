@@ -17,11 +17,6 @@ WrongCat::WrongCat() : WrongAnimal() {
     this->type = "WrongCat";
 }
 
-WrongCat::WrongCat(std::string name) : WrongAnimal(name) {
-    std::cout << "WrongCat named constructor called." << std::endl;
-    this->type = "WrongCat";
-}
-
 WrongCat::WrongCat(const WrongCat& copy) : WrongAnimal(copy) {
     std::cout << "WrongCat copy constructor called." << std::endl;
 }
@@ -38,5 +33,5 @@ WrongCat::~WrongCat() {
 }
 
 void    WrongCat::makeSound() const {
-    std::cout << "WrongCat " << this->name << ": WRONG Meoooooooooooooooowwwwwww" << std::endl;
+    std::cout << "WrongCat: WRONG Meoooooooooooooooowwwwwww" << std::endl;
 }

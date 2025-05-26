@@ -17,11 +17,6 @@ Dog::Dog() : Animal() {
     this->type = "Dog";
 }
 
-Dog::Dog(std::string name) : Animal(name) {
-    std::cout << "Dog named constructor called." << std::endl;
-    this->type = "Dog";
-}
-
 Dog::Dog(const Dog& copy) : Animal(copy) {
     std::cout << "Dog copy constructor called." << std::endl;
 }
@@ -39,5 +34,5 @@ Dog::~Dog() {
 }
 
 void    Dog::makeSound() const {
-    std::cout << "Dog " << this->name << ": ROOF ROOF ROOF AUUUUU" << std::endl;
+    std::cout << "Dog : ROOF ROOF ROOF AUUUUU" << std::endl;
 }

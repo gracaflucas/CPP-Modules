@@ -19,17 +19,14 @@
 class WrongAnimal {
 
     protected:
-        std::string name;
         std::string type;
 
     public:
         WrongAnimal();
-        WrongAnimal(std::string name);
         WrongAnimal(const WrongAnimal& copy);
         WrongAnimal& operator=(const WrongAnimal& other);
         ~WrongAnimal();
         void    makeSound() const;
-        std::string getName() const;
         std::string getType() const;
 };
 

@@ -18,12 +18,6 @@ Cat::Cat() : Animal() {
     this->catBrain = new Brain;
 }
 
-Cat::Cat(std::string name) : Animal(name) {
-    std::cout << "Cat named constructor called." << std::endl;
-    this->type = "Cat";
-    this->catBrain = new Brain;
-}
-
 Cat::Cat(const Cat& copy) : Animal(copy) {
     std::cout << "Cat copy constructor called." << std::endl;
     this->catBrain = new Brain(*copy.catBrain);
@@ -45,7 +39,7 @@ Cat::~Cat() {
 }
 
 void    Cat::makeSound() const {
-    std::cout << "Cat " << this->name << ": Meoooooooooooooooowwwwwww" << std::endl;
+    std::cout << "Cat: Meoooooooooooooooowwwwwww" << std::endl;
 }
 
 Brain&   Cat::getBrain() const {
