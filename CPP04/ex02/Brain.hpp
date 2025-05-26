@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/26 02:04:00 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/26 02:04:00 by marvin           ###   ########.fr       */
+/*   Created: 2025/05/26 02:04:58 by marvin            #+#    #+#             */
+/*   Updated: 2025/05/26 02:04:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AAnimal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-int main()
-{
-    // AAnimal meta; // ERROR! Animal is abstract now, cannot instantiate
+#include <iostream>
+#include <string>
 
-    const AAnimal* dog = new Dog();
-    const AAnimal* cat = new Cat();
+class Brain {
 
-    std::cout << dog->getType() << std::endl;
-    std::cout << cat->getType() << std::endl;
+    private:
+        std::string ideas[100];
 
-    dog->makeSound();
-    cat->makeSound();
+    public:
+        Brain();
+        Brain(const Brain& copy);
+        Brain& operator=(const Brain& other);
+        ~Brain();
+        void setIdea(int index, const std::string& idea);
+        std::string getIdea(int index) const;
+};
 
-    delete dog;
-    delete cat;
-
-    return 0;
-}
+#endif
