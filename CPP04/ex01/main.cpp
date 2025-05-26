@@ -1,0 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/26 02:04:00 by marvin            #+#    #+#             */
+/*   Updated: 2025/05/26 02:04:00 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+
+int main()
+{
+    const Animal* a = new Dog();
+    const Animal* b = new Cat();
+    const Animal* c = new Dog();
+    const Animal* d = new Cat();
+    const Animal* e = new Dog();
+    const Animal* f = new Cat();
+    std::cout << a->getType() << " " << std::endl;
+    std::cout << b->getType() << " " << std::endl;
+    std::cout << c->getType() << " " << std::endl;
+    std::cout << d->getType() << " " << std::endl;
+    std::cout << e->getType() << " " << std::endl;
+    std::cout << f->getType() << " " << std::endl;
+    delete a;
+    delete b;
+    delete c;
+    delete d;
+    delete e;
+    delete f;
+    return 0;
+}
