@@ -14,36 +14,25 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 
-int main()
-{
-    const Animal* a = new Dog();
-    const Animal* b = new Cat();
-    const Animal* c = new Dog();
-    const Animal* d = new Cat();
-    const Animal* e = new Dog();
-    const Animal* f = new Cat();
-    std::cout << a->getType() << " " << std::endl;
-    std::cout << b->getType() << " " << std::endl;
-    std::cout << c->getType() << " " << std::endl;
-    std::cout << d->getType() << " " << std::endl;
-    std::cout << e->getType() << " " << std::endl;
-    std::cout << f->getType() << " " << std::endl;
-    delete a;
-    delete b;
-    delete c;
-    delete d;
-    delete e;
-    delete f;
-
+int main() {
+    const Animal* animals[6] = {
+        new Dog(), new Cat(), new Dog(),
+        new Cat(), new Dog(), new Cat()
+    };
+    for (int i = 0; i < 6; ++i) {
+        std::cout << animals[i]->getType() << std::endl;
+    }
+    for (int i = 0; i < 6; ++i) {
+        delete animals[i];
+    }
     Cat originalCat;
     originalCat.getBrain().setIdea(0, "Chase mice");
     originalCat.getBrain().setIdea(1, "Sleep");
     Cat copyCat = originalCat;
     originalCat.getBrain().setIdea(0, "Eat fish");
-
     // Check ideas in copyCat remain unchanged (deep copy)
     std::cout << "Original Cat idea 0: " << originalCat.getBrain().getIdea(0) << std::endl;
     std::cout << "Copy Cat idea 0: " << copyCat.getBrain().getIdea(0) << std::endl;
-    
+
     return 0;
 }

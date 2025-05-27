@@ -47,10 +47,6 @@ DiamondTrap::~DiamondTrap() {
     std::cout << "DiamondTrap destructor called." << std::endl;
 }
 
-void DiamondTrap::attack(const std::string& target) {
-    ScavTrap::attack(target);
-}
-
 void    DiamondTrap::whoAmI() {
     std::cout << "ClapTrap: " << ClapTrap::name << std::endl;
     std::cout << "DiamondTrap: " << name << std::endl;
