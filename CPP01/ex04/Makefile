@@ -1,4 +1,4 @@
-NAME = main
+NAME = replace
 SRC =	main.cpp
 OBJ = $(SRC:.cpp=.o)
 CXX = c++

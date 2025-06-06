@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lufiguei <lufiguei@student.42porto.co      +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 13:46:00 by lufiguei          #+#    #+#             */
-/*   Updated: 2025/05/23 13:46:02 by lufiguei         ###   ########.fr       */
+/*   Updated: 2025/06/03 16:01:45 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,10 @@ int main(void)
 		else if (command == "EXIT" || command == "exit") {
 			std::cout << "exiting the program, bye :)\n";
 			break ;
+		}
+		if (std::cin.eof()) {
+			std::cout << "So you want to leave, huh? bye\n";
+			return (0);
 		}
 	}
 	return (0);
