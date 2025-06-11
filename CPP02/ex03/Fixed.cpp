@@ -12,35 +12,24 @@
 
 #include "Fixed.hpp"
 
-Fixed::Fixed() {
-    std::cout << "Default constructor called." << std::endl;
-    this->fixed = 0;
-}
+Fixed::Fixed() : fixed(0) {}
 
-Fixed::Fixed(const Fixed& copy) {
-    std::cout << "Copy constructor called." << std::endl;
-    *this = copy;
-}
+Fixed::Fixed(const Fixed& copy) : fixed(copy.fixed) {}
 
 Fixed::Fixed(const int overwrite) {
-    std::cout << "Int constructor called." << std::endl;
     this->fixed = overwrite << bit;
 }
 
 Fixed::Fixed(const float overwrite) {
-    std::cout << "Float constructor called." << std::endl;
     this->fixed = roundf(overwrite * (1 << bit));
 }
 
 Fixed& Fixed::operator=(const Fixed& copy) {
-    std::cout << "Copy assignment operator called." << std::endl;
     this->fixed = copy.getRawBits();
     return *this;
 }
 
-Fixed::~Fixed() {
-    std::cout << "Destructor called." << std::endl;
-}
+Fixed::~Fixed() {}
 
 float    Fixed::toFloat( void ) const {
     return (float)this->fixed / (1 << bit);
@@ -51,7 +40,6 @@ int    Fixed::toInt( void ) const {
 }
 
 int     Fixed::getRawBits( void ) const {
-    std::cout << "getRawBits member function called." << std::endl;
     return this->fixed;
 }
 

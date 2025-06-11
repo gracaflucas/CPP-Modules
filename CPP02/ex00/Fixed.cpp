@@ -12,14 +12,12 @@
 
 #include "Fixed.hpp"
 
-Fixed::Fixed() {
+Fixed::Fixed() : fixed(0) {
     std::cout << "Default constructor called." << std::endl;
-    this->fixed = 0;
 }
 
-Fixed::Fixed(const Fixed& copy) {
+Fixed::Fixed(const Fixed& copy) : fixed(copy.fixed) {
     std::cout << "Copy constructor called." << std::endl;
-    *this = copy;
 }
 
 Fixed& Fixed::operator=(const Fixed& copy) {
