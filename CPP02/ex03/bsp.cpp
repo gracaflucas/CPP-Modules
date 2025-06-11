@@ -18,7 +18,7 @@ Fixed triangleArea(Point const p1, Point const p2, Point const p3) {
                 (p2.getX() * (p3.getY() - p1.getY())) +
                 (p3.getX() * (p1.getY() - p2.getY()));
     if (res < Fixed(0))
-        res = Fixed(0) - res;
+        res = res * Fixed(-1);
     return res;
 }
 
