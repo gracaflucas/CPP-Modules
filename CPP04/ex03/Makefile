@@ -1,5 +1,9 @@
 NAME = Interface
 SRC =	main.cpp \
+		Character.cpp \
+		Cure.cpp \
+		Ice.cpp \
+		MateriaSource.cpp \
 		AMateria.cpp
 OBJ = $(SRC:.cpp=.o)
 CXX = c++
