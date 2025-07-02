@@ -22,8 +22,13 @@ AMateria& AMateria::operator=(const AMateria& other) {}
 
 AMateria::~AMateria() {}
 
-std::string const & AMateria::getType() const {}
+std::string const & AMateria::getType() const {
+    return this->type
+}
 
-AMateria* AMateria::clone() const {}
+AMateria* AMateria::clone() const {
+    new AMateria spell;
+    return *spell;
+}
 
 void AMateria::use(ICharacter& target) {}

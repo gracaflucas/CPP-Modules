@@ -18,8 +18,10 @@ int main(int argc, char **argv) {
         std::cout << "Error: try ./replace filename s1 s2" << std::endl;
         return 1;
     }
-    if (!argv[2] || !argv[3]) {
-        std::cout << "Error: neither s1 or s2 can be NULL" << std::endl;
+    std::string s1 = argv[2];
+    std::string s2 = argv[3];
+    if (s1.empty() || s2.empty()) {
+        std::cout << "Error: s1 and s2 cannot be empty strings." << std::endl;
         return 1;
     }
     std::ifstream input(argv[1]);
@@ -33,8 +35,6 @@ int main(int argc, char **argv) {
         std::cout << "Error: couldn't create output file." << std::endl;
         return 1;
     }
-    std::string s1 = argv[2];
-    std::string s2 = argv[3];
     std::string line;
     while (std::getline(input, line)) {
         size_t pos = 0;
