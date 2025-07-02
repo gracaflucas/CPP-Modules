@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <stdexcept>
+#include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat {
     private:
@@ -31,6 +34,9 @@ class Bureaucrat {
         void                setGrade(int grade);
         void                increment();
         void                decrement();
+
+        void signForm(AForm& form);
+        void executeForm(AForm const& form) const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& Bureaucrat);

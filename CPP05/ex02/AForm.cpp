@@ -1,9 +1,9 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form()
+AForm::AForm()
     : name("Untitled"), isSigned(false), gradeRequiredToSign(75), gradeRequiredToExecute(75) {}
 
-Form::Form(const std::string& name, int gradeToSign, int gradeToExecute)
+AForm::AForm(const std::string& name, int gradeToSign, int gradeToExecute)
     : name(name), isSigned(false), gradeRequiredToSign(gradeToSign), gradeRequiredToExecute(gradeToExecute) {
     if (gradeToSign < 1 || gradeToExecute < 1)
         throw GradeTooHighException();
@@ -11,51 +11,55 @@ Form::Form(const std::string& name, int gradeToSign, int gradeToExecute)
         throw GradeTooLowException();
 }
 
-Form::Form(const Form& other)
+AForm::AForm(const AForm& other)
     : name(other.name),
       isSigned(other.isSigned),
       gradeRequiredToSign(other.gradeRequiredToSign),
       gradeRequiredToExecute(other.gradeRequiredToExecute) {}
 
-Form& Form::operator=(const Form& other) {
+AForm& AForm::operator=(const AForm& other) {
     if (this != &other)
         this->isSigned = other.isSigned;
     return *this;
 }
 
-Form::~Form() {}
+AForm::~AForm() {}
 
-const std::string& Form::getName() const {
+const std::string& AForm::getName() const {
     return name;
 }
 
-bool Form::getIsSigned() const {
+bool AForm::getIsSigned() const {
     return isSigned;
 }
 
-int Form::getGradeRequiredToSign() const {
+int AForm::getGradeRequiredToSign() const {
     return gradeRequiredToSign;
 }
 
-int Form::getGradeRequiredToExecute() const {
+int AForm::getGradeRequiredToExecute() const {
     return gradeRequiredToExecute;
 }
 
-void Form::beSigned(const Bureaucrat& b) {
+void AForm::beSigned(const Bureaucrat& b) {
     if (b.getGrade() > gradeRequiredToSign)
         throw GradeTooLowException();
     isSigned = true;
 }
 
-const char* Form::GradeTooHighException::what() const throw() {
+const char* AForm::GradeTooHighException::what() const throw() {
     return "Form: Grade too high";
 }
 
-const char* Form::GradeTooLowException::what() const throw() {
+const char* AForm::GradeTooLowException::what() const throw() {
     return "Form: Grade too low";
 }
 
-std::ostream& operator<<(std::ostream& os, const Form& form) {
+const char* AForm::NotSignedException::what() const throw() {
+    return "Form: not signed";
+}
+
+std::ostream& operator<<(std::ostream& os, const AForm& form) {
     os << "Form \"" << form.getName()
        << "\", signed: " << (form.getIsSigned() ? "yes" : "no")
        << ", grade required to sign: " << form.getGradeRequiredToSign()
