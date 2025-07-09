@@ -28,22 +28,25 @@ class AForm {
 
         void beSigned(const Bureaucrat& b);
 
-        virtual void execute(Bureaucrat const & executor) const = 0;
-
+        void execute(Bureaucrat const & executor) const;
+        
         class GradeTooHighException : public std::exception {
             public:
-                const char* what() const throw();
+            const char* what() const throw();
         };
-
+        
         class GradeTooLowException : public std::exception {
             public:
-                const char* what() const throw();
+            const char* what() const throw();
         };
-
+        
         class NotSignedException : public std::exception {
             public:
-                const char* what() const throw();
+            const char* what() const throw();
         };
+
+        protected:
+            virtual void executeAction() const = 0;
 };
 
 std::ostream& operator<<(std::ostream& os, const AForm& form);

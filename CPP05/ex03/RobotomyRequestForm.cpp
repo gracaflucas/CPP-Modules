@@ -3,17 +3,24 @@
 #include <cstdlib>
 #include <ctime>
 
+RobotomyRequestForm::RobotomyRequestForm() : target("") {}
+
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
     : AForm("RobotomyRequestForm", 72, 45), target(target) {}
 
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& copy) : AForm(copy), target(copy.target) {}
+
+RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& other) {
+    if (this != &other) {
+        AForm::operator=(other);
+        this->target = other.target;
+    }
+    return *this;
+}
+
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
-void RobotomyRequestForm::execute(Bureaucrat const& executor) const {
-    if (!getIsSigned())
-        throw AForm::NotSignedException();
-    if (executor.getGrade() > getGradeRequiredToExecute())
-        throw AForm::GradeTooLowException();
-
+void RobotomyRequestForm::executeAction() const {
     std::cout << "BZZZZZ... drilling noises..." << std::endl;
 
     std::srand(std::time(0));

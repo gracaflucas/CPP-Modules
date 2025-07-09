@@ -7,8 +7,6 @@
 #include <ctime>
 
 int main() {
-    std::srand(std::time(0)); // seed rand for robotomy randomness
-
     Bureaucrat bob("Bob", 140);
     Bureaucrat alice("Alice", 1);
 
