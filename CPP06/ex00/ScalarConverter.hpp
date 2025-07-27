@@ -8,6 +8,10 @@
 #include <limits>
 #include <string>
 
+#include <sstream>
+#include <cerrno>
+#include <cctype>
+
 
 class ScalarConverter {
     private:
