@@ -31,11 +31,12 @@ void ScalarConverter::convert(const std::string& literal) {
     int iVal;
     char cVal;
 
+    std::cout << std::fixed << std::setprecision(1);
     if (isSpecialFloat(literal)) {
         fVal = std::strtof(literal.c_str(), NULL);
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
-        std::cout << "float: " << literal << std::endl;
+        std::cout << "float: " << fVal << "f" << std::endl;
         std::cout << "double: " << static_cast<double>(fVal) << std::endl;
         return;
     }
@@ -44,7 +45,7 @@ void ScalarConverter::convert(const std::string& literal) {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
         std::cout << "float: " << static_cast<float>(dVal) << "f" << std::endl;
-        std::cout << "double: " << literal << std::endl; // nao tenho que printar o dval?
+        std::cout << "double: " << dVal << std::endl;
         return;
     }
     if (isCharLiteral(literal)) {
@@ -55,32 +56,27 @@ void ScalarConverter::convert(const std::string& literal) {
 
         std::cout << "char: '" << cVal << "'" << std::endl;
         std::cout << "int: " << iVal << std::endl;
-        std::cout << std::fixed << std::setprecision(1); // preciso usar fixed?
         std::cout << "float: " << fVal << "f" << std::endl;
         std::cout << "double: " << dVal << std::endl;
         return;
     }
 
-    char* end; // aqui preciso descobrir o tipo, mudar para o tipo e fazer os casts, é um ultimo filtro
-    errno = 0;
+    char* end;
     dVal = std::strtod(literal.c_str(), &end);
 
-    if (*end == 'f' && *(end + 1) == '\0') {
-        fVal = static_cast<float>(dVal);
-        iVal = static_cast<int>(fVal);
-        cVal = static_cast<char>(fVal);
-    }
-    else if (*end == '\0') {
-        fVal = static_cast<float>(dVal);
-        iVal = static_cast<int>(dVal);
-        cVal = static_cast<char>(dVal);
-    }
-    else {
+    if (*end != '\0' && !(*end == 'f' && *(end + 1) == '\0')) {
         std::cout << "Invalid input." << std::endl;
         return;
     }
+    fVal = static_cast<float>(dVal);
+    if (*end == 'f') {
+        iVal = static_cast<int>(fVal);
+        cVal = static_cast<char>(fVal);
+    } else {
+        iVal = static_cast<int>(dVal);
+        cVal = static_cast<char>(dVal);
+    }
 
-    // prints caso passe de todos os edge cases
     std::cout << "char: ";
     if (std::isprint(cVal))
         std::cout << "'" << cVal << "'" << std::endl;
@@ -95,7 +91,6 @@ void ScalarConverter::convert(const std::string& literal) {
     else
         std::cout << iVal << std::endl;
 
-    std::cout << std::fixed << std::setprecision(1);
     std::cout << "float: " << fVal << "f" << std::endl;
     std::cout << "double: " << dVal << std::endl;
 }

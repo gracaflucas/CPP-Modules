@@ -9,7 +9,7 @@ Base * generate(void) {
         std::cout << "Generated: A." << std::endl;
         return new A;
     }
-    else if (r == 0) {
+    else if (r == 1) {
         std::cout << "Generated: B." << std::endl;
         return new B;
     }

@@ -4,7 +4,8 @@
 #include "Serializer.hpp"
 
 struct Data {
-    int Num;
+    public:
+        int Num;
 };
 
 #endif
