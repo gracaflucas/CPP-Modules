@@ -1,8 +1,8 @@
 # CPP-Modules
 
-# 💻 42 C++ Modules 00–04
+# 💻 C++ Modules
 
-This repository contains my solutions for the **C++ Modules 00–04** from the 42 programming curriculum. These modules gradually introduce C++ concepts such as classes, memory management, operator overloading, inheritance, polymorphism, and abstract interfaces.
+This repository contains my solutions for the **C++ Modules**. These modules gradually introduce C++ concepts such as classes, memory management, operator overloading, inheritance, polymorphism, templates, exceptions, containers and abstract interfaces.
 
 Each module is a step deeper into C++ best practices and object-oriented design.
 
@@ -65,6 +65,38 @@ Each module is a step deeper into C++ best practices and object-oriented design.
 - Dynamic memory with polymorphism
 
 ✅ **What I Learned**: Designing extensible systems with interface-based architecture and abstract classes.
+
+---
+
+### 🚨 Module 05 – Exception Handling
+
+- try, catch, throw
+- Standard exception classes
+- Creating custom exceptions
+- Exception-safe programming
+
+✅ **What I Learned**: Writing safe, robust code that gracefully handles unexpected behavior.
+
+---
+
+### 🧠 Module 06 – Type Casting
+
+- Static, dynamic, reinterpret, and const casting
+- Type safety and downcasting
+- Identifying and avoiding unsafe casts
+
+✅ **What I Learned**: Proper use of C++ casting operators and when to apply each one.
+
+---
+
+### 🔧 Module 07 – Templates
+
+- Function and class templates
+- Template specialization
+- Generic programming
+- Avoiding code duplication with templates
+
+✅ **What I Learned**: Writing reusable and scalable components using template programming.
 
 ---
 
