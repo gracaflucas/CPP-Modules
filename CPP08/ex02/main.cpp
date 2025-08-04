@@ -55,5 +55,30 @@ int main() {
         ++lit;
     }
 
+    std::cout << "\n--- Testing const_iterator ---" << std::endl;
+    const MutantStack<int> const_mstack = mstack;
+    MutantStack<int>::const_iterator cit = const_mstack.begin();
+    MutantStack<int>::const_iterator cite = const_mstack.end();
+    while (cit != cite) {
+        std::cout << *cit << std::endl;
+        ++cit;
+    }
+
+    std::cout << "\n--- Testing reverse_iterator ---" << std::endl;
+    MutantStack<int>::reverse_iterator rit = mstack.rbegin();
+    MutantStack<int>::reverse_iterator rite = mstack.rend();
+    while (rit != rite) {
+        std::cout << *rit << std::endl;
+        ++rit;
+    }
+
+    std::cout << "\n--- Testing const_reverse_iterator ---" << std::endl;
+    MutantStack<int>::const_reverse_iterator crit = const_mstack.rbegin();
+    MutantStack<int>::const_reverse_iterator crite = const_mstack.rend();
+    while (crit != crite) {
+        std::cout << *crit << std::endl;
+        ++crit;
+    }
+
     return 0;
 }
