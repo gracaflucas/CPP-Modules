@@ -24,7 +24,7 @@ Array<T>& Array<T>::operator=(const Array& other) {
     if (this != &other) {
         T* newData = new T[other._size];
         for (unsigned int i = 0; i < other._size; i++) {
-            this->newData[i] = other._data[i];
+            newData[i] = other._data[i];
         }
         delete[] _data;
         _data = newData; 
