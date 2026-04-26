@@ -19,8 +19,8 @@ class BitcoinExchange {
         ~BitcoinExchange();
 
         BitcoinExchange& operator=(const BitcoinExchange& other);
-        void    loadDatabase(const std::string& filename);
-        void    processInput(const std::string& filename);
+        bool    loadDatabase(const std::string& filename);
+        bool    processInput(const std::string& filename);
         bool    isValidDate(const std::string& date);
         double  parseValueLine(const std::string& line, std::string& outDate);
 

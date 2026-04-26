@@ -21,16 +21,8 @@ std::list<std::string> RPN::tokenize(const std::string& input) {
             ++i;
             continue;
         }
-        if (std::isdigit(input[i])) {
-            tokens.push_back(std::string(1, input[i]));
-            ++i;
-        } else if (input[i] == '+' || input[i] == '-' || input[i] == '*' || input[i] == '/') {
-            tokens.push_back(std::string(1, input[i]));
-            ++i;
-        } else {
-            tokens.push_back(std::string(1, input[i]));
-            ++i;
-        }
+        tokens.push_back(std::string(1, input[i]));
+        ++i;
     }
     return tokens;
 }
@@ -39,10 +31,10 @@ bool RPN::isOperator(const std::string& token) {
     return token == "+" || token == "-" || token == "*" || token == "/";
 }
 
-bool RPN::applyOperator(std::list<int>& stack, const std::string& op) {
+bool RPN::applyOperator(std::stack<int>& stack, const std::string& op) {
     if (stack.size() < 2) return false;
-    int right = stack.back(); stack.pop_back();
-    int left = stack.back(); stack.pop_back();
+    int right = stack.top(); stack.pop();
+    int left = stack.top(); stack.pop();
     int res = 0;
     if (op == "+")
         res = left + right;
@@ -56,20 +48,19 @@ bool RPN::applyOperator(std::list<int>& stack, const std::string& op) {
         res = left / right;
     } else
         return false;
-    stack.push_back(res);
+    stack.push(res);
     return true;
 }
 
 bool RPN::evaluate(const std::string& expression, int& result) {
     std::list<std::string> tokens = tokenize(expression);
-    std::list<int> stack;
+    std::stack<int> stack;
     for (std::list<std::string>::iterator it = tokens.begin(); it != tokens.end(); ++it) {
         const std::string& token = *it;
         if (token.size() != 1)
             return false;
         if (std::isdigit(token[0])) {
-            int val = token[0] - '0';
-            stack.push_back(val);
+            stack.push(token[0] - '0');
         } else if (isOperator(token)) {
             if (!applyOperator(stack, token)) return false;
         } else {
@@ -77,6 +68,6 @@ bool RPN::evaluate(const std::string& expression, int& result) {
         }
     }
     if (stack.size() != 1) return false;
-    result = stack.back();
+    result = stack.top();
     return true;
 }

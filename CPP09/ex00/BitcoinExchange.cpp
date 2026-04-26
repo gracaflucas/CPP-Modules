@@ -13,11 +13,11 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other) {
     return *this;
 }
 
-void BitcoinExchange::loadDatabase(const std::string& filename) {
+bool BitcoinExchange::loadDatabase(const std::string& filename) {
     std::ifstream input(filename.c_str());
     if (!input.is_open()) {
-        std::cout << "Error: couldn't open file." << std::endl;
-        return;
+        std::cerr << "Error: couldn't open database file." << std::endl;
+        return false;
     }
     std::string line;
     std::getline(input, line);
@@ -32,13 +32,14 @@ void BitcoinExchange::loadDatabase(const std::string& filename) {
         }
     }
     input.close();
+    return true;
 }
 
-void BitcoinExchange::processInput(const std::string& filename) {
+bool BitcoinExchange::processInput(const std::string& filename) {
     std::ifstream input(filename.c_str());
     if (!input.is_open()) {
-        std::cout << "Error: couldn't open file." << std::endl;
-        return;
+        std::cerr << "Error: couldn't open input file." << std::endl;
+        return false;
     }
     std::string line;
     std::getline(input, line);
@@ -64,6 +65,7 @@ void BitcoinExchange::processInput(const std::string& filename) {
         }
     }
     input.close();
+    return true;
 }
 
 static std::string trim(const std::string& s) {
@@ -87,14 +89,15 @@ double BitcoinExchange::parseValueLine(const std::string& line, std::string& out
     if (!isValidDate(date)) {
         throw std::runtime_error("Error: bad input => " + date);
     }
+    if (!valueStr.empty() && valueStr[0] == '-')
+        throw NegativeValueException();
     double value = 0;
     std::istringstream iss(valueStr);
     if (!(iss >> value) || !iss.eof()) {
         throw std::runtime_error("Error: invalid numeric value => " + valueStr);
     }
-    if (value < 0) {
+    if (value < 0)
         throw NegativeValueException();
-    }
     if (value > 1000) {
         throw TooLargeValueException();
     }
@@ -105,6 +108,10 @@ double BitcoinExchange::parseValueLine(const std::string& line, std::string& out
 bool BitcoinExchange::isValidDate(const std::string& date) {
     if (date.length() != 10 || date[4] != '-' || date[7] != '-')
         return false;
+    for (int i = 0; i < 10; i++) {
+        if (i == 4 || i == 7) continue;
+        if (!std::isdigit(date[i])) return false;
+    }
     int year, month, day;
     std::istringstream yss(date.substr(0, 4));
     std::istringstream mss(date.substr(5, 2));

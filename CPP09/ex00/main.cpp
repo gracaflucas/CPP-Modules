@@ -2,11 +2,13 @@
 
 int main(int argc, char **argv) {
     if (argc != 2) {
-        std::cout << "Wrong Command Line Argument, try ./btc 'file'." << std::endl;
+        std::cerr << "Usage: ./btc <input_file>" << std::endl;
         return 1;
     }
     BitcoinExchange btc;
-    btc.loadDatabase("data.csv");
-    btc.processInput(argv[1]);
+    if (!btc.loadDatabase("data.csv"))
+        return 1;
+    if (!btc.processInput(argv[1]))
+        return 1;
     return 0;
 }
